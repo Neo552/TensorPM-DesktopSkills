@@ -18,7 +18,7 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pptx-v1.1.0/project-pptx-1.1.0.tar.gz",
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pptx-v1.1.0/project-pptx-1.1.0.tar.gz?download=1",
         "sha256": "99b24f4aabe7bd758ecb3f96272186865c156b1b0cfd0d526bb0cc06e9a71a60",
         "size": 5425
       },
@@ -40,7 +40,7 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-docx-v1.0.0/project-docx-1.0.0.tar.gz",
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-docx-v1.0.0/project-docx-1.0.0.tar.gz?download=1",
         "sha256": "11af22c5b29c3aafacfbcaf9b816bd5e2c4c98202663f4fb1779f5172a41494a",
         "size": 2762
       },
@@ -62,7 +62,7 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-xlsx-v1.0.0/project-xlsx-1.0.0.tar.gz",
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-xlsx-v1.0.0/project-xlsx-1.0.0.tar.gz?download=1",
         "sha256": "d229db2d007aa725588775ff6839bdd3676b42a7f04f2532ea955ddfef0e30b3",
         "size": 2615
       },
@@ -84,7 +84,7 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pdf-v1.0.0/project-pdf-1.0.0.tar.gz",
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pdf-v1.0.0/project-pdf-1.0.0.tar.gz?download=1",
         "sha256": "b7fafb02119eb5fc7da2cd594e1efcfced5e93fbd89ab3291c9e5afc3084b94d",
         "size": 2769
       },
