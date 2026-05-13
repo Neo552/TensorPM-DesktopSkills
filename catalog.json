@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-14T00:00:00.000Z",
+  "skills": [
+    {
+      "id": "project-pptx",
+      "version": "1.0.0",
+      "label": "Project PPTX",
+      "description": "Generate a short PowerPoint deck summarising the current project — title, status snapshot, and top open action items.",
+      "minTensorPMVersion": "1.0.0",
+      "permissions": {
+        "tensorpm": {
+          "action_items": "read",
+          "decisions": "read",
+          "history": "none"
+        },
+        "network": "none",
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pptx-v1.0.0/project-pptx-1.0.0.tar.gz",
+        "sha256": "0d23ee46d85509966172af58ed834e02d3304999cf59351f0efe05d325baeb76",
+        "size": 3331
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/project-pptx"
+    }
+  ]
+}
