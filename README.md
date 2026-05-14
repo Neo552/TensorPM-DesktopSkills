@@ -1,8 +1,9 @@
 # TensorPM Desktop Skills
 
-Official skill catalog for the **TensorPM desktop app**. Skills are installed
-on demand into a project's `skills/` folder. This catalog intentionally ships
-community Agent Skill bundles rather than app-bundled local skills.
+Skill catalog endpoint for the **TensorPM desktop app**. The app fetches
+`catalog.json` from this repo to discover installable skills. The catalog is
+intentionally empty by default — TensorPM is a customer-authored skill
+platform, not a curator of bundled domain skills.
 
 This repo is **not** the Claude Code marketplace — that lives at
 [`Neo552/TensorPM-Skill`](https://github.com/Neo552/TensorPM-Skill). Different
@@ -57,36 +58,27 @@ Each skill lives under `skills/<id>/`. Skills may be runnable TensorPM skills
 with a Deno `runtime` block, or instruction-only Agent Skills that guide the
 chat agent via `describe_skill` + `execute_code`.
 
-```
-skills/pptx-generator/
-├── SKILL.md
-└── references/
-```
+The catalog is currently **empty** — TensorPM is a skill platform for customer-
+authored domain skills, not a curator of bundled Office/document skills.
+Customers publish their own skills and point the app at this (or any other)
+catalog URL.
 
-The current Office/document skills are upstream MIT-licensed MiniMax community
-skills copied from [`MiniMax-AI/skills`](https://github.com/MiniMax-AI/skills):
+## Publishing a new skill version
 
-- `pptx-generator`
-- `minimax-docx`
-- `minimax-xlsx`
-- `minimax-pdf`
-
-## Releasing a new version
-
-1. Bump `version:` in `skills/<id>/SKILL.md`.
-2. Tar the skill folder:
+1. Place skill source under `skills/<id>/` with a valid `SKILL.md`.
+2. Bump `version:` in `skills/<id>/SKILL.md`.
+3. Tar the skill folder:
    ```bash
    cd skills/<id>
    tar -czf /tmp/<id>-<version>.tar.gz .
    ```
-3. Create a GitHub Release tagged `<id>-v<version>` and upload the tarball:
+4. Create a GitHub Release tagged `<id>-v<version>` and upload the tarball:
    ```bash
    gh release create <id>-v<version> /tmp/<id>-<version>.tar.gz \
      --title "<id> v<version>" \
      --notes "Release notes here"
    ```
-4. Compute sha256 + size, update `catalog.json` with the new entry
-   (replacing the prior version's row), and commit:
+5. Compute sha256 + size, append the entry to `catalog.json`, and commit:
    ```bash
    shasum -a 256 /tmp/<id>-<version>.tar.gz
    stat -f%z /tmp/<id>-<version>.tar.gz
@@ -100,4 +92,4 @@ landing on `main`.
 
 - **Catalog schema + this README**: MIT (see `LICENSE`).
 - **Individual skills**: each skill's `LICENSE` / frontmatter license governs
-  that skill's source. The current MiniMax skills are MIT.
+  that skill's source.
