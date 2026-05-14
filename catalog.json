@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-14T00:45:00.000Z",
+  "updatedAt": "2026-05-14T06:55:00.000Z",
   "skills": [
     {
-      "id": "project-pptx",
-      "version": "1.1.0",
-      "label": "Project PPTX",
-      "description": "Render a PowerPoint (.pptx) deck from an AI-provided slide specification.",
+      "id": "pptx-generator",
+      "version": "1.0.0",
+      "label": "MiniMax PPTX Generator",
+      "description": "Generate, edit, and read PowerPoint presentations with PptxGenJS, XML workflows, design references, and QA guidance.",
       "minTensorPMVersion": "1.0.0",
       "permissions": {
         "tensorpm": {
@@ -18,17 +18,17 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pptx-v1.1.0/project-pptx-1.1.0.tar.gz?download=1",
-        "sha256": "99b24f4aabe7bd758ecb3f96272186865c156b1b0cfd0d526bb0cc06e9a71a60",
-        "size": 5425
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pptx-generator-v1.0.0/pptx-generator-1.0.0.tar.gz?download=1",
+        "sha256": "b64867ac613bc0e6a5ec4f7633b5720351fd0846ccc03332b19bcb908a31eff0",
+        "size": 22604
       },
-      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/project-pptx"
+      "homepage": "https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator"
     },
     {
-      "id": "project-docx",
+      "id": "minimax-docx",
       "version": "1.0.0",
-      "label": "Project DOCX",
-      "description": "Render a Word (.docx) document from an AI-provided document specification.",
+      "label": "MiniMax DOCX",
+      "description": "Professional DOCX creation, editing, formatting, template application, OpenXML guidance, and validation workflows.",
       "minTensorPMVersion": "1.0.0",
       "permissions": {
         "tensorpm": {
@@ -40,17 +40,17 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-docx-v1.0.0/project-docx-1.0.0.tar.gz?download=1",
-        "sha256": "11af22c5b29c3aafacfbcaf9b816bd5e2c4c98202663f4fb1779f5172a41494a",
-        "size": 2762
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/minimax-docx-v1.0.0/minimax-docx-1.0.0.tar.gz?download=1",
+        "sha256": "41fe4e34f6234a95b304c5e2cc69eabd74e7cc7dfc8f2bdfb631eea16e5caa25",
+        "size": 336752
       },
-      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/project-docx"
+      "homepage": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-docx"
     },
     {
-      "id": "project-xlsx",
+      "id": "minimax-xlsx",
       "version": "1.0.0",
-      "label": "Project XLSX",
-      "description": "Render an Excel (.xlsx) workbook from an AI-provided workbook specification.",
+      "label": "MiniMax XLSX",
+      "description": "Open, create, read, analyze, edit, validate, and professionally format Excel and spreadsheet files.",
       "minTensorPMVersion": "1.0.0",
       "permissions": {
         "tensorpm": {
@@ -62,17 +62,17 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-xlsx-v1.0.0/project-xlsx-1.0.0.tar.gz?download=1",
-        "sha256": "d229db2d007aa725588775ff6839bdd3676b42a7f04f2532ea955ddfef0e30b3",
-        "size": 2615
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/minimax-xlsx-v1.0.0/minimax-xlsx-1.0.0.tar.gz?download=1",
+        "sha256": "ea96ebddf88f349f886b1e96be89c842710b8f9a2229fe69fc3fef7b3ffa1065",
+        "size": 81040
       },
-      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/project-xlsx"
+      "homepage": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-xlsx"
     },
     {
-      "id": "project-pdf",
+      "id": "minimax-pdf",
       "version": "1.0.0",
-      "label": "Project PDF",
-      "description": "Render a PDF document from an AI-provided page and element specification.",
+      "label": "MiniMax PDF",
+      "description": "Create polished PDFs, fill PDF forms, and reformat documents with a token-based visual design system.",
       "minTensorPMVersion": "1.0.0",
       "permissions": {
         "tensorpm": {
@@ -84,11 +84,11 @@
         "ai_provider": "none"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/project-pdf-v1.0.0/project-pdf-1.0.0.tar.gz?download=1",
-        "sha256": "b7fafb02119eb5fc7da2cd594e1efcfced5e93fbd89ab3291c9e5afc3084b94d",
-        "size": 2769
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/minimax-pdf-v1.0.0/minimax-pdf-1.0.0.tar.gz?download=1",
+        "sha256": "b98a54c171b4557746a4671e6434fc458d378530ff43b13728f3ef494da691a9",
+        "size": 53413
       },
-      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/project-pdf"
+      "homepage": "https://github.com/MiniMax-AI/skills/tree/main/skills/minimax-pdf"
     }
   ]
 }

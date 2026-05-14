@@ -1,8 +1,8 @@
 # TensorPM Desktop Skills
 
-Official skill catalog for the **TensorPM desktop app**. Skills are TypeScript
-bundles that the app downloads on demand and runs inside its sandboxed Deno
-runtime to do things like generate PowerPoint decks from project state.
+Official skill catalog for the **TensorPM desktop app**. Skills are installed
+on demand into a project's `skills/` folder. This catalog intentionally ships
+community Agent Skill bundles rather than app-bundled local skills.
 
 This repo is **not** the Claude Code marketplace — that lives at
 [`Neo552/TensorPM-Skill`](https://github.com/Neo552/TensorPM-Skill). Different
@@ -53,19 +53,23 @@ treated as Anthropic IP).
 
 ## Skill source layout
 
-Each skill lives under `skills/<id>/`:
+Each skill lives under `skills/<id>/`. Skills may be runnable TensorPM skills
+with a Deno `runtime` block, or instruction-only Agent Skills that guide the
+chat agent via `describe_skill` + `execute_code`.
 
 ```
-skills/project-pptx/
-├── SKILL.md          (Apache-2.0 Agent Skills format)
-└── scripts/
-    └── main.ts       (entrypoint, runs inside Deno sandbox)
+skills/pptx-generator/
+├── SKILL.md
+└── references/
 ```
 
-The `SKILL.md` frontmatter follows the
-[Agent Skills specification](https://agentskills.io/specification)
-(Apache-2.0) so skills here can be cross-published to other Agent Skills
-consumers later without rewriting.
+The current Office/document skills are upstream MIT-licensed MiniMax community
+skills copied from [`MiniMax-AI/skills`](https://github.com/MiniMax-AI/skills):
+
+- `pptx-generator`
+- `minimax-docx`
+- `minimax-xlsx`
+- `minimax-pdf`
 
 ## Releasing a new version
 
@@ -95,5 +99,5 @@ landing on `main`.
 ## License
 
 - **Catalog schema + this README**: MIT (see `LICENSE`).
-- **Individual skills**: each skill's `LICENSE` (when present) governs that
-  skill's source. The shipped `project-pptx` skill is MIT.
+- **Individual skills**: each skill's `LICENSE` / frontmatter license governs
+  that skill's source. The current MiniMax skills are MIT.
