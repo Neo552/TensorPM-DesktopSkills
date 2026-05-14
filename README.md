@@ -30,7 +30,7 @@ consumer, different runtime, different format.
   "updatedAt": "ISO-8601 timestamp",
   "skills": [
     {
-      "id": "project-pptx",
+      "id": "pptx-generator",
       "version": "MAJOR.MINOR.PATCH",
       "label": "Display name",
       "description": "One-line description",
