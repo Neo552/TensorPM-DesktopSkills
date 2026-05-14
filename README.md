@@ -31,7 +31,7 @@ consumer, different runtime, different format.
   "updatedAt": "ISO-8601 timestamp",
   "skills": [
     {
-      "id": "pptx-generator",
+      "id": "<skill-id>",
       "version": "MAJOR.MINOR.PATCH",
       "label": "Display name",
       "description": "One-line description",
@@ -42,7 +42,7 @@ consumer, different runtime, different format.
         "sha256": "64-hex-char digest of the tarball",
         "size": 3331
       },
-      "homepage": "https://github.com/.../skills/<id>"
+      "homepage": "https://github.com/.../skills/<skill-id>"
     }
   ]
 }
@@ -54,14 +54,19 @@ treated as Anthropic IP).
 
 ## Skill source layout
 
-Each skill lives under `skills/<id>/`. Skills may be runnable TensorPM skills
-with a Deno `runtime` block, or instruction-only Agent Skills that guide the
-chat agent via `describe_skill` + `execute_code`.
+Each skill lives under `skills/<id>/`. A skill is either:
+
+- **Runnable** — declares a `runtime.engine: deno` block plus a `scripts:`
+  dictionary in its SKILL.md frontmatter. The agent invokes individual
+  operations via `execute_code` skill mode (`skillId + scriptId`).
+- **Instruction-only** — has no `scripts:` block. The agent calls
+  `describe_skill` to read the SKILL.md body, then writes an ad-hoc
+  `execute_code` call that follows the instructions.
 
 The catalog is currently **empty** — TensorPM is a skill platform for customer-
 authored domain skills, not a curator of bundled Office/document skills.
 Customers publish their own skills and point the app at this (or any other)
-catalog URL.
+catalog URL via the `TPM_REMOTE_CATALOG_URL` env var.
 
 ## Publishing a new skill version
 
