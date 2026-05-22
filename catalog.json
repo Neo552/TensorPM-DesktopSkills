@@ -1,5 +1,39 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-14T00:00:00.000Z",
-  "skills": []
+  "updatedAt": "2026-05-22T00:00:00.000Z",
+  "skills": [
+    {
+      "id": "meeting-transcriber",
+      "version": "0.1.0",
+      "label": "Meeting Transcriber",
+      "description": "Transcribe macOS meeting audio from the project folder locally with whisper.cpp and write transcript files back to the project.",
+      "minTensorPMVersion": "1.6.0-beta.1",
+      "platforms": ["darwin"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [
+          "huggingface.co:443",
+          "cdn-lfs.hf.co:443",
+          "cas-bridge.xethub.hf.co:443",
+          "transfer.xethub.hf.co:443"
+        ],
+        "project_files": {
+          "read": ["meetings/**", "skill-cache/meeting-transcriber/**"],
+          "write": ["transcripts/**", "skill-cache/meeting-transcriber/**"]
+        },
+        "run": ["system:afconvert", "skill:assets/bin/darwin-arm64/whisper-cli"],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/meeting-transcriber-v0.1.0/meeting-transcriber-0.1.0.tar.gz",
+        "sha256": "8389c9bdaa4b5ce57ea30b2ce8cdcaee13ec9391f7907b22325b52dacd6a6e62",
+        "size": 1161290
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/meeting-transcriber"
+    }
+  ]
 }

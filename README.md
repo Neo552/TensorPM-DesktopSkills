@@ -1,9 +1,8 @@
 # TensorPM Desktop Skills
 
 Skill catalog endpoint for the **TensorPM desktop app**. The app fetches
-`catalog.json` from this repo to discover installable skills. The catalog is
-intentionally empty by default — TensorPM is a customer-authored skill
-platform, not a curator of bundled domain skills.
+`catalog.json` from this repo to discover installable desktop skills. TensorPM
+can also consume customer-authored catalogs via `TPM_REMOTE_CATALOG_URL`.
 
 This repo is **not** the Claude Code marketplace — that lives at
 [`Neo552/TensorPM-Skill`](https://github.com/Neo552/TensorPM-Skill). Different
@@ -36,6 +35,7 @@ consumer, different runtime, different format.
       "label": "Display name",
       "description": "One-line description",
       "minTensorPMVersion": "1.0.0",
+      "platforms": ["darwin"],
       "permissions": { /* mirrors the SKILL.md permissions block */ },
       "payload": {
         "url": "https://github.com/.../releases/download/<tag>/<file>.tar.gz",
@@ -47,6 +47,10 @@ consumer, different runtime, different format.
   ]
 }
 ```
+
+`platforms` is optional. Omit it for cross-platform skills, or set it to a
+subset of `darwin`, `linux`, and `win32` to make TensorPM block installs on
+unsupported hosts. Use `["darwin"]` for macOS-only skills.
 
 Schema is MIT-licensed (see `LICENSE`) — derived independently, **not**
 based on Anthropic's `marketplace.json` (which has no LICENSE and is
@@ -63,9 +67,7 @@ Each skill lives under `skills/<id>/`. A skill is either:
   `describe_skill` to read the SKILL.md body, then writes an ad-hoc
   `execute_code` call that follows the instructions.
 
-The catalog is currently **empty** — TensorPM is a skill platform for customer-
-authored domain skills, not a curator of bundled Office/document skills.
-Customers publish their own skills and point the app at this (or any other)
+Customers can publish their own skills and point the app at this or any other
 catalog URL via the `TPM_REMOTE_CATALOG_URL` env var.
 
 ## Publishing a new skill version
@@ -88,6 +90,13 @@ catalog URL via the `TPM_REMOTE_CATALOG_URL` env var.
    shasum -a 256 /tmp/<id>-<version>.tar.gz
    stat -f%z /tmp/<id>-<version>.tar.gz
    ```
+6. Verify the catalog entry against the local release tarball before pushing:
+   ```bash
+   node scripts/verify-catalog.mjs --tarballs /tmp
+   ```
+   For macOS native skills, this also checks that declared `skill:assets/bin/...`
+   targets are executable, that `whisper-cli -h` starts, and that the Mach-O
+   deployment target is not newer than macOS 13.0 by default.
 
 Clients fetch `catalog.json` on demand, with an ETag-cached layer in the
 app's userData dir, so updates propagate within minutes of the commit
