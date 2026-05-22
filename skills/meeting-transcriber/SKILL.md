@@ -1,7 +1,7 @@
 ---
 name: meeting-transcriber
 description: Transcribe macOS meeting audio from the project folder with a bundled whisper.cpp CLI, downloading the selected model on first use, and write transcript files back to the project folder.
-version: 0.1.0
+version: 0.1.1
 runtime:
   engine: deno
 permissions:
@@ -18,6 +18,7 @@ permissions:
     read:
       - meetings/**
       - skill-cache/meeting-transcriber/**
+      - transcripts/**
     write:
       - transcripts/**
       - skill-cache/meeting-transcriber/**
