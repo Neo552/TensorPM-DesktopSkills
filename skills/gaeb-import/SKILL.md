@@ -19,6 +19,13 @@ permissions:
 limits:
   cpu_seconds: 120
   memory_mb: 512
+file_triggers:
+  - script: parse
+    label: GAEB-LV einlesen (Übersicht)
+    extensions: [x81, x82, x83, x83z, x84, x84z, x85, x86, xml]
+    file_input: file_path
+    inputs:
+      mode: summary
 scripts:
   parse:
     entrypoint: scripts/parse-gaeb.ts
