@@ -1,12 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-03T08:00:00.000Z",
+  "updatedAt": "2026-07-03T13:30:00.000Z",
   "skills": [
     {
       "id": "gaeb-import",
       "version": "0.1.0",
       "label": "GAEB Import",
       "description": "Parse German GAEB bills of quantities (Leistungsverzeichnis, .x81/.x83/.x84) deterministically and stage their positions for review as project material items with position references, quantities, and unit prices.",
+      "descriptionI18n": {
+        "de": "Liest GAEB-Leistungsverzeichnisse (.x81/.x83/.x84) deterministisch ein und stellt die Positionen mit Ordnungszahl, Mengen und Einheitspreisen zur Übernahme als Materialposten bereit."
+      },
       "minTensorPMVersion": "1.17.2",
       "platforms": ["darwin", "win32", "linux"],
       "permissions": {
@@ -35,6 +38,9 @@
       "version": "0.1.1",
       "label": "Meeting Transcriber",
       "description": "Transcribe macOS meeting audio from the project folder locally with whisper.cpp and write transcript files back to the project.",
+      "descriptionI18n": {
+        "de": "Transkribiert Meeting-Audio aus dem Projektordner lokal mit whisper.cpp (macOS) und legt die Transkripte als Dateien im Projekt ab."
+      },
       "minTensorPMVersion": "1.6.0-beta.1",
       "platforms": ["darwin"],
       "permissions": {

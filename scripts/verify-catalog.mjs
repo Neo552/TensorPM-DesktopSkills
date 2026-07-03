@@ -30,6 +30,8 @@ function verifyEntry(entry) {
   assert(/^[a-z0-9._-]+$/i.test(entry.id), `invalid skill id: ${entry.id}`);
   assertString(entry.version, `${entry.id}.version`);
   assertString(entry.description, `${entry.id}.description`);
+  assertI18nMap(entry, 'descriptionI18n');
+  assertI18nMap(entry, 'labelI18n');
   assertPayload(entry);
   assertPermissions(entry);
 
@@ -51,6 +53,22 @@ function verifyEntry(entry) {
     verifyExtractedSkill(entry, extractDir);
   } finally {
     rmSync(extractDir, { recursive: true, force: true });
+  }
+}
+
+function assertI18nMap(entry, field) {
+  const map = entry[field];
+  if (map === undefined) return;
+  assert(
+    map !== null && typeof map === 'object' && !Array.isArray(map),
+    `${entry.id}.${field} must be an object of language code → text`,
+  );
+  for (const [lang, text] of Object.entries(map)) {
+    assert(
+      /^[a-z]{2}(-[a-z]{2})?$/i.test(lang),
+      `${entry.id}.${field}: invalid language code ${lang}`,
+    );
+    assertString(text, `${entry.id}.${field}.${lang}`);
   }
 }
 
