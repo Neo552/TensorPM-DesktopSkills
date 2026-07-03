@@ -1,7 +1,35 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-22T16:02:29.000Z",
+  "updatedAt": "2026-07-03T08:00:00.000Z",
   "skills": [
+    {
+      "id": "gaeb-import",
+      "version": "0.1.0",
+      "label": "GAEB Import",
+      "description": "Parse German GAEB bills of quantities (Leistungsverzeichnis, .x81/.x83/.x84) deterministically and stage their positions for review as project material items with position references, quantities, and unit prices.",
+      "minTensorPMVersion": "1.17.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": ["gaeb/**"],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/gaeb-import-v0.1.0/gaeb-import-0.1.0.tar.gz",
+        "sha256": "577a6ac5e4a1b24ed279167aaac131b89f61352d3276237f4863b8cb4aa75eb8",
+        "size": 45196
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/gaeb-import"
+    },
     {
       "id": "meeting-transcriber",
       "version": "0.1.1",
