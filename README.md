@@ -102,6 +102,23 @@ Clients fetch `catalog.json` on demand, with an ETag-cached layer in the
 app's userData dir, so updates propagate within minutes of the commit
 landing on `main`.
 
+## Office artifact evals
+
+The `evals/office-artifacts/` folder contains trigger and output-quality eval
+fixtures for the Office/document guidance skills:
+
+- `trigger-queries.json` checks that format-specific prompts load the right
+  instruction skill and avoid unrelated skills.
+- `output-quality-tasks.json` defines artifact-generation/review tasks with
+  weighted rubrics.
+- `rubric.md` documents the scoring procedure.
+
+Validate the eval fixture shape with:
+
+```bash
+node scripts/verify-office-artifact-evals.mjs
+```
+
 ## License
 
 - **Catalog schema + this README**: MIT (see `LICENSE`).

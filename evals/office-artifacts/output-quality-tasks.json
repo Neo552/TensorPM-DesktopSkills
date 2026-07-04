@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "description": "Manual or automated output-quality eval tasks for TensorPM office artifact skills. Run with and without the relevant skill, then score the produced artifact against the rubric.",
+  "tasks": [
+    {
+      "id": "pptx-steering-status-deck",
+      "prompt": "Create a 7-slide PowerPoint steering committee status deck from a project with milestones, budget variance, top risks, decisions needed, and next steps.",
+      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedArtifact": { "extensions": ["pptx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Deck structure matches the steering use case and stays within the requested slide count.", "weight": 20 },
+        { "criterion": "Every slide title states a concrete takeaway rather than a generic topic.", "weight": 20 },
+        { "criterion": "Layout is readable with bounded text, consistent margins, no overloaded slide, and reusable design tokens/constants.", "weight": 25 },
+        { "criterion": "Project facts, dates, owners, currencies, and assumptions are explicit and not invented.", "weight": 25 },
+        { "criterion": "File is written via outputPath with a descriptive project-derived name.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "pptx-risk-decision-deck",
+      "prompt": "Create a client-facing PowerPoint decision deck comparing three delivery options, their tradeoffs, risks, recommendation, and action request.",
+      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedArtifact": { "extensions": ["pptx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Decision framing is clear and leads to a specific recommendation.", "weight": 25 },
+        { "criterion": "Options and tradeoffs are visualized in readable comparison slides.", "weight": 20 },
+        { "criterion": "Risk, owner, mitigation, and decision deadline are present where relevant.", "weight": 20 },
+        { "criterion": "Slide density, typography, and content-specific visual direction avoid generic AI-deck defaults.", "weight": 25 },
+        { "criterion": "Appendix or backup material is separated from the main story.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "xlsx-budget-forecast-model",
+      "prompt": "Create an editable Excel workbook for project budget tracking with input assumptions, planned vs actual costs, forecast, variance, and summary.",
+      "expectedSkills": ["excel-artifact-guide"],
+      "expectedArtifact": { "extensions": ["xlsx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Workbook separates summary, inputs, calculations/details, and assumptions.", "weight": 20 },
+        { "criterion": "Editable cells, assumptions, and formulas are intentional, visible, and documented.", "weight": 25 },
+        { "criterion": "Totals reconcile between detail rows and summary.", "weight": 25 },
+        { "criterion": "Dates, currencies, units, and status values use consistent formatting.", "weight": 20 },
+        { "criterion": "Limitations such as missing data or unsupported charts are visible.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "xlsx-action-item-register",
+      "prompt": "Export project action items to a management XLSX workbook with summary metrics, detail rows, owners, due dates, status, priority, and assumptions.",
+      "expectedSkills": ["excel-artifact-guide"],
+      "expectedArtifact": { "extensions": ["xlsx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Rows match the selected project action-item source data.", "weight": 25 },
+        { "criterion": "Summary counts reconcile with detail rows.", "weight": 25 },
+        { "criterion": "Columns are readable, labeled with units where needed, and not unnecessarily wide.", "weight": 20 },
+        { "criterion": "Assumptions and filters are included on a visible sheet.", "weight": 15 },
+        { "criterion": "Workbook is useful for later editing rather than only a raw dump.", "weight": 15 }
+      ]
+    },
+    {
+      "id": "docx-meeting-minutes",
+      "prompt": "Create a Word meeting summary from project notes with decisions, action items, owners, due dates, open questions, and a concise discussion summary.",
+      "expectedSkills": ["word-artifact-guide"],
+      "expectedArtifact": { "extensions": ["docx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Document structure separates context, decisions, action items, discussion, and open questions.", "weight": 25 },
+        { "criterion": "Action items include owner, due date, status, and source confidence where available.", "weight": 25 },
+        { "criterion": "Narrative is concise and uses the user's language.", "weight": 20 },
+        { "criterion": "Semantic headings and tables make the document editable.", "weight": 20 },
+        { "criterion": "Missing inputs are marked rather than inferred.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "docx-decision-memo",
+      "prompt": "Write a formal editable DOCX decision memo covering background, decision question, options, tradeoffs, recommendation, impact, risks, and next action.",
+      "expectedSkills": ["word-artifact-guide"],
+      "expectedArtifact": { "extensions": ["docx"], "count": 1 },
+      "rubric": [
+        { "criterion": "Decision question and recommendation are clear in the first page.", "weight": 25 },
+        { "criterion": "Options, tradeoffs, impact, and risks are structured for comparison.", "weight": 25 },
+        { "criterion": "Document uses semantic headings and simple editable tables.", "weight": 20 },
+        { "criterion": "Project facts and assumptions are explicit and source-consistent.", "weight": 20 },
+        { "criterion": "Next action has owner and deadline when data exists.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "pdf-client-status-pack",
+      "prompt": "Create a printable client PDF status pack with title band, executive summary, milestones, risks, decisions, next steps, and source notes. Preview as PNG before final PDF.",
+      "expectedSkills": ["pdf-artifact-guide"],
+      "expectedArtifact": { "extensions": ["pdf"], "count": 1 },
+      "rubric": [
+        { "criterion": "HTML-to-PNG preview loop is used before final PDF export when available.", "weight": 20 },
+        { "criterion": "Final PDF has readable typography, consistent margins, and no overlaps/clipping.", "weight": 30 },
+        { "criterion": "Page breaks do not split headings or key tables awkwardly.", "weight": 20 },
+        { "criterion": "Status colors are paired with text labels and print legibly.", "weight": 15 },
+        { "criterion": "File name and source notes are descriptive and project-derived.", "weight": 15 }
+      ]
+    },
+    {
+      "id": "pdf-risk-print-report",
+      "prompt": "Create a fixed-layout PDF risk report for print with high-priority risks, impact, owner, mitigation, escalation need, and assumptions.",
+      "expectedSkills": ["pdf-artifact-guide"],
+      "expectedArtifact": { "extensions": ["pdf"], "count": 1 },
+      "rubric": [
+        { "criterion": "Report includes all requested risk fields and separates assumptions from facts.", "weight": 25 },
+        { "criterion": "Visual hierarchy makes high-priority risks easy to scan.", "weight": 20 },
+        { "criterion": "PDF layout is previewed and free of overlap, clipping, unreadable tables, and token drift.", "weight": 30 },
+        { "criterion": "Headers, footers, dates, and units are consistent.", "weight": 15 },
+        { "criterion": "Large raw tables are summarized or moved out of the PDF.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "review-generated-pdf",
+      "prompt": "Review the generated PDF status pack against the original client request. Return blocker/major/minor findings first and do not regenerate unless asked.",
+      "expectedSkills": ["artifact-reviewer"],
+      "expectedArtifact": { "extensions": [], "count": 0 },
+      "rubric": [
+        { "criterion": "Review uses the original request and available artifact evidence, not generic taste.", "weight": 25 },
+        { "criterion": "Findings are severity-ranked and actionable with concrete structured evidence and fix instructions.", "weight": 25 },
+        { "criterion": "PDF-specific layout issues such as clipping, page breaks, and print readability are checked.", "weight": 25 },
+        { "criterion": "Reviewer distinguishes must-fix blockers from optional polish.", "weight": 15 },
+        { "criterion": "Limitations of the review evidence are explicit.", "weight": 10 }
+      ]
+    },
+    {
+      "id": "review-generated-xlsx",
+      "prompt": "Review the generated Excel workbook for formula correctness, summary/detail reconciliation, formatting consistency, and visible assumptions.",
+      "expectedSkills": ["artifact-reviewer"],
+      "expectedArtifact": { "extensions": [], "count": 0 },
+      "rubric": [
+        { "criterion": "Review checks reconciliation between summary metrics and detail rows.", "weight": 30 },
+        { "criterion": "Formula, hardcoded-assumption, and editable-cell risks are identified precisely.", "weight": 25 },
+        { "criterion": "Assumptions, missing inputs, dates, currencies, and units are evaluated.", "weight": 20 },
+        { "criterion": "Findings are severity-ranked with specific remediation steps.", "weight": 15 },
+        { "criterion": "Reviewer avoids dumping raw workbook content into chat.", "weight": 10 }
+      ]
+    }
+  ]
+}

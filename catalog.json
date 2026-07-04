@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-03T13:30:00.000Z",
+  "updatedAt": "2026-07-04T21:23:58.000Z",
   "skills": [
     {
       "id": "gaeb-import",
@@ -68,6 +68,161 @@
         "size": 1161298
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/meeting-transcriber"
+    },
+    {
+      "id": "powerpoint-artifact-guide",
+      "version": "0.1.3",
+      "label": "PowerPoint Artifact Guide",
+      "description": "Instruction-only guidance for polished TensorPM PowerPoint, PPTX, decks, slides, Folien, visual polish, design contracts, PptxGenJS patterns, and presentation QA.",
+      "descriptionI18n": {
+        "de": "Instruction-only Leitfaden für hochwertige TensorPM-PowerPoint-Decks mit Struktur, Foliendichte, Layout-Defaults, PptxGenJS-Mustern und Prüfregeln."
+      },
+      "minTensorPMVersion": "1.18.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": [],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/powerpoint-artifact-guide-v0.1.3/powerpoint-artifact-guide-0.1.3.tar.gz",
+        "sha256": "a765291181deb7e5508b0e6058dd825a76e43ef31925f838da4722682355d087",
+        "size": 4321
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/powerpoint-artifact-guide"
+    },
+    {
+      "id": "excel-artifact-guide",
+      "version": "0.1.3",
+      "label": "Excel Artifact Guide",
+      "description": "Instruction-only guidance for polished TensorPM Excel, XLSX, Tabellen, workbook architecture, editable models, formulas, reconciliation, write-excel-file usage, and spreadsheet QA.",
+      "descriptionI18n": {
+        "de": "Instruction-only Leitfaden für hochwertige TensorPM-Excel-Arbeitsmappen mit Workbook-Struktur, editierbaren Modellen, Formeln, Sheet-Layout, write-excel-file-Nutzung und Prüfregeln."
+      },
+      "minTensorPMVersion": "1.18.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": [],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/excel-artifact-guide-v0.1.3/excel-artifact-guide-0.1.3.tar.gz",
+        "sha256": "76625c6666dc537864a4a3452afd17043ba45f20218f69cdd7cffe986b972a01",
+        "size": 3671
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/excel-artifact-guide"
+    },
+    {
+      "id": "word-artifact-guide",
+      "version": "0.1.3",
+      "label": "Word Artifact Guide",
+      "description": "Instruction-only guidance for polished TensorPM Word, DOCX, Berichte, Protokolle, editable reports, decision memos, semantic headings, tables, and document QA.",
+      "descriptionI18n": {
+        "de": "Instruction-only Leitfaden für hochwertige TensorPM-Word-Dokumente mit editierbaren DOCX-Reports, Entscheidungsvorlagen, Meeting-Zusammenfassungen, semantischen Überschriften, Tabellen und Textprüfung."
+      },
+      "minTensorPMVersion": "1.18.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": [],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/word-artifact-guide-v0.1.3/word-artifact-guide-0.1.3.tar.gz",
+        "sha256": "3dc6b98397ac8db831757a5949b760546541632cd002159cb29eb4956696781e",
+        "size": 3382
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/word-artifact-guide"
+    },
+    {
+      "id": "pdf-artifact-guide",
+      "version": "0.1.3",
+      "label": "PDF Artifact Guide",
+      "description": "Instruction-only guidance for polished TensorPM PDF, Druckversionen, fixed-layout reports, render_html preview-to-PDF workflow, design contracts, pdf-lib boundaries, and visual QA.",
+      "descriptionI18n": {
+        "de": "Instruction-only Leitfaden für hochwertige TensorPM-PDF-Artefakte mit render_html-Preview-to-PDF-Workflow, Fixed-Layout-Reportstruktur, pdf-lib-Grenzen und visueller Prüfung."
+      },
+      "minTensorPMVersion": "1.18.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": [],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.1.3/pdf-artifact-guide-0.1.3.tar.gz",
+        "sha256": "7de82163ec32ba45b5d8e5a4c1b421b6db3a1222b9d4a7abe393992d81277512",
+        "size": 3526
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/pdf-artifact-guide"
+    },
+    {
+      "id": "artifact-reviewer",
+      "version": "0.1.3",
+      "label": "Artifact Reviewer",
+      "description": "Instruction-only quality review for generated TensorPM artifacts, including PowerPoint, Excel, Word, PDF, structured diagnostics, render-and-critique loops, visual QA, quality gates, and acceptance review.",
+      "descriptionI18n": {
+        "de": "Instruction-only Qualitätsprüfung für erzeugte TensorPM-Artefakte wie PowerPoint, Excel, Word, PDF, Folien, Tabellen, Berichte, Druckversionen, visuelle QA und Reviewer-Prüfungen."
+      },
+      "minTensorPMVersion": "1.18.2",
+      "platforms": ["darwin", "win32", "linux"],
+      "permissions": {
+        "tensorpm": {
+          "action_items": "none",
+          "decisions": "none",
+          "history": "none"
+        },
+        "network": [],
+        "project_files": {
+          "read": [],
+          "write": []
+        },
+        "run": [],
+        "ai_provider": "none"
+      },
+      "payload": {
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/artifact-reviewer-v0.1.3/artifact-reviewer-0.1.3.tar.gz",
+        "sha256": "fa9c1e09125d16b25a7ba0ef2c2eb5b33b28f943857fcd3c51ef6687d1fa229f",
+        "size": 3842
+      },
+      "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/artifact-reviewer"
     }
   ]
 }
