@@ -5,7 +5,7 @@
     {
       "id": "pptx-steering-status-deck",
       "prompt": "Create a 7-slide PowerPoint steering committee status deck from a project with milestones, budget variance, top risks, decisions needed, and next steps.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "expectedArtifact": { "extensions": ["pptx"], "count": 1 },
       "rubric": [
         { "criterion": "Deck structure matches the steering use case and stays within the requested slide count.", "weight": 20 },
@@ -18,7 +18,7 @@
     {
       "id": "pptx-risk-decision-deck",
       "prompt": "Create a client-facing PowerPoint decision deck comparing three delivery options, their tradeoffs, risks, recommendation, and action request.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "expectedArtifact": { "extensions": ["pptx"], "count": 1 },
       "rubric": [
         { "criterion": "Decision framing is clear and leads to a specific recommendation.", "weight": 25 },

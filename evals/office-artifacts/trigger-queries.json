@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "description": "Trigger evaluation queries for TensorPM office artifact skills. Run each query multiple times against the skill router and compare expectedSkills/forbiddenSkills.",
   "skillIds": [
-    "powerpoint-artifact-guide",
+    "presentation-deck",
     "excel-artifact-guide",
     "word-artifact-guide",
     "pdf-artifact-guide",
@@ -13,7 +13,7 @@
       "id": "pptx-de-001",
       "locale": "de",
       "prompt": "Erstelle mir aus dem Projektstatus ein PowerPoint-Statusdeck für den Lenkungskreis.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "status", "steering"]
     },
@@ -21,7 +21,7 @@
       "id": "pptx-de-002",
       "locale": "de",
       "prompt": "Baue eine Folienpräsentation mit Roadmap, Risiken und Entscheidungen für den Kunden.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "client", "roadmap"]
     },
@@ -29,7 +29,7 @@
       "id": "pptx-de-003",
       "locale": "de",
       "prompt": "Ich brauche ein kurzes Executive Summary als PPTX mit 6 Slides.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "executive"]
     },
@@ -37,7 +37,7 @@
       "id": "pptx-de-004",
       "locale": "de",
       "prompt": "Mach ein Entscheidungsdeck mit Optionen, Tradeoffs und Empfehlung.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "decision"]
     },
@@ -45,7 +45,7 @@
       "id": "pptx-de-005",
       "locale": "de",
       "prompt": "Erzeuge Folien für die Baustellenbesprechung: Fortschritt, Blocker, nächste Schritte.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "meeting"]
     },
@@ -53,7 +53,7 @@
       "id": "pptx-en-006",
       "locale": "en",
       "prompt": "Create a polished PowerPoint deck for a board update using project milestones, risks, and budget variance.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "board", "budget"]
     },
@@ -61,7 +61,7 @@
       "id": "pptx-en-007",
       "locale": "en",
       "prompt": "Generate a client-facing slide deck with a timeline, risk summary, and decisions needed.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "client", "timeline"]
     },
@@ -69,7 +69,7 @@
       "id": "pptx-en-008",
       "locale": "en",
       "prompt": "Turn the project action items and blockers into a concise management presentation.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "management"]
     },
@@ -77,7 +77,7 @@
       "id": "pptx-en-009",
       "locale": "en",
       "prompt": "Build a roadmap presentation with one takeaway per slide and an appendix for backup details.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "roadmap"]
     },
@@ -85,7 +85,7 @@
       "id": "pptx-en-010",
       "locale": "en",
       "prompt": "Create a PowerPoint risk review deck with owners, mitigations, and escalation asks.",
-      "expectedSkills": ["powerpoint-artifact-guide"],
+      "expectedSkills": ["presentation-deck"],
       "forbiddenSkills": ["excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["pptx", "risk"]
     },
@@ -95,7 +95,7 @@
       "locale": "de",
       "prompt": "Erstelle eine Excel-Tabelle mit allen offenen Action Items, Verantwortlichen, Status und Fälligkeit.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "action-items"]
     },
     {
@@ -103,7 +103,7 @@
       "locale": "de",
       "prompt": "Baue eine bearbeitbare Arbeitsmappe für Budget, Ist-Kosten, Forecast und Abweichungen.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "budget", "forecast"]
     },
     {
@@ -111,7 +111,7 @@
       "locale": "de",
       "prompt": "Exportiere die Meilensteine als XLSX mit Terminplan und Ampelstatus.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "milestones"]
     },
     {
@@ -119,7 +119,7 @@
       "locale": "de",
       "prompt": "Ich brauche ein Risikoregister in Excel mit Impact, Owner, Maßnahme und nächstem Review.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "risk-register"]
     },
     {
@@ -127,7 +127,7 @@
       "locale": "de",
       "prompt": "Erstelle eine Kalkulationsdatei mit Eingabeblatt, Annahmen und berechneten Summen.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "model"]
     },
     {
@@ -135,7 +135,7 @@
       "locale": "en",
       "prompt": "Create an editable Excel workbook for project budget tracking with formulas and an assumptions sheet.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "budget", "formulas"]
     },
     {
@@ -143,7 +143,7 @@
       "locale": "en",
       "prompt": "Generate an XLSX milestone schedule with summary, detail rows, dates, and status columns.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "schedule"]
     },
     {
@@ -151,7 +151,7 @@
       "locale": "en",
       "prompt": "Build a workbook that lets the team update rates and quantities and see recalculated totals.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "editable-model"]
     },
     {
@@ -159,7 +159,7 @@
       "locale": "en",
       "prompt": "Export the project risks to a spreadsheet with consistent priority and mitigation fields.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "risk"]
     },
     {
@@ -167,7 +167,7 @@
       "locale": "en",
       "prompt": "Create a management workbook with a summary sheet and separate raw data sheets.",
       "expectedSkills": ["excel-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "word-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["xlsx", "management"]
     },
 
@@ -176,7 +176,7 @@
       "locale": "de",
       "prompt": "Erstelle einen Word-Bericht zum Projektstatus mit Executive Summary, Risiken und nächsten Schritten.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "status-report"]
     },
     {
@@ -184,7 +184,7 @@
       "locale": "de",
       "prompt": "Schreibe ein Meeting-Protokoll als DOCX mit Entscheidungen und Action Items.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "minutes"]
     },
     {
@@ -192,7 +192,7 @@
       "locale": "de",
       "prompt": "Baue eine Entscheidungsvorlage in Word mit Optionen, Tradeoffs und Empfehlung.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "decision-memo"]
     },
     {
@@ -200,7 +200,7 @@
       "locale": "de",
       "prompt": "Erstelle ein editierbares Anforderungsdokument mit Scope, Constraints und Akzeptanzkriterien.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "requirements"]
     },
     {
@@ -208,7 +208,7 @@
       "locale": "de",
       "prompt": "Ich brauche einen Risiko-Bericht als Word-Datei für die Projektleitung.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "risk-report"]
     },
     {
@@ -216,7 +216,7 @@
       "locale": "en",
       "prompt": "Create an editable DOCX project report with semantic headings, tables, and action-oriented next steps.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "report"]
     },
     {
@@ -224,7 +224,7 @@
       "locale": "en",
       "prompt": "Write a decision memo in Word that separates background, options, recommendation, and risks.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "decision"]
     },
     {
@@ -232,7 +232,7 @@
       "locale": "en",
       "prompt": "Generate meeting minutes as a Word document with owners and due dates for every action item.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "minutes"]
     },
     {
@@ -240,7 +240,7 @@
       "locale": "en",
       "prompt": "Create a client-ready requirements document in DOCX from the current project scope and constraints.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "requirements"]
     },
     {
@@ -248,7 +248,7 @@
       "locale": "en",
       "prompt": "Draft a formal status narrative as a Word file, not a slide deck or spreadsheet.",
       "expectedSkills": ["word-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "pdf-artifact-guide", "artifact-reviewer"],
       "tags": ["docx", "narrative"]
     },
 
@@ -257,7 +257,7 @@
       "locale": "de",
       "prompt": "Erstelle eine druckfertige PDF-Statusübersicht für den Kunden.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "print"]
     },
     {
@@ -265,7 +265,7 @@
       "locale": "de",
       "prompt": "Baue einen mehrseitigen PDF-Report mit sauberem Layout, Kopfzeile und Fußzeile.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "report", "layout"]
     },
     {
@@ -273,7 +273,7 @@
       "locale": "de",
       "prompt": "Ich brauche eine finale Druckversion der Projektrisiken als PDF.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "risk"]
     },
     {
@@ -281,7 +281,7 @@
       "locale": "de",
       "prompt": "Exportiere einen client-ready PDF-Statuspack mit Summary, Meilensteinen und Entscheidungen.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "client"]
     },
     {
@@ -289,7 +289,7 @@
       "locale": "de",
       "prompt": "Stemple das vorhandene PDF mit einem Projektvermerk und speichere die neue Datei.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "stamping"]
     },
     {
@@ -297,7 +297,7 @@
       "locale": "en",
       "prompt": "Create a polished printable PDF report with a PNG preview pass before final export.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "preview"]
     },
     {
@@ -305,7 +305,7 @@
       "locale": "en",
       "prompt": "Generate a fixed-layout PDF for the project steering committee with sections and page breaks.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "steering"]
     },
     {
@@ -313,7 +313,7 @@
       "locale": "en",
       "prompt": "Produce a PDF client status pack that is ready to email and print.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "client"]
     },
     {
@@ -321,7 +321,7 @@
       "locale": "en",
       "prompt": "Merge the supplied PDF pages and add a cover page with project metadata.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "merge"]
     },
     {
@@ -329,7 +329,7 @@
       "locale": "en",
       "prompt": "Create a print-optimized PDF risk report with status labels that do not rely on color alone.",
       "expectedSkills": ["pdf-artifact-guide"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "artifact-reviewer"],
       "tags": ["pdf", "risk", "accessibility"]
     },
 
@@ -338,7 +338,7 @@
       "locale": "de",
       "prompt": "Prüfe das erzeugte PowerPoint-Deck auf Layout, Lesbarkeit und ob die Folientitel echte Aussagen sind.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "pptx"]
     },
     {
@@ -346,7 +346,7 @@
       "locale": "de",
       "prompt": "Mach eine Qualitätsprüfung für die Excel-Arbeitsmappe und finde Rechen- oder Strukturfehler.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "xlsx"]
     },
     {
@@ -354,7 +354,7 @@
       "locale": "de",
       "prompt": "Reviewe den Word-Bericht gegen meine ursprüngliche Anforderung und nenne Blocker.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "docx"]
     },
     {
@@ -362,7 +362,7 @@
       "locale": "de",
       "prompt": "Prüfe die PDF-Druckversion visuell: Seitenumbrüche, Überlappungen, Kopf- und Fußzeilen.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "pdf", "visual"]
     },
     {
@@ -370,7 +370,7 @@
       "locale": "de",
       "prompt": "Bewerte das erstellte Artefakt mit einer klaren Go/No-Go-Empfehlung und konkreten Fixes.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "gate"]
     },
     {
@@ -378,7 +378,7 @@
       "locale": "en",
       "prompt": "Review the generated PDF report for clipped text, page breaks, and whether it satisfies the original request.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "pdf"]
     },
     {
@@ -386,7 +386,7 @@
       "locale": "en",
       "prompt": "Act as an independent QA reviewer for the generated workbook and check formulas, totals, and assumptions.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "xlsx"]
     },
     {
@@ -394,7 +394,7 @@
       "locale": "en",
       "prompt": "Audit this slide deck before I send it to leadership; list blockers first.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "pptx"]
     },
     {
@@ -402,7 +402,7 @@
       "locale": "en",
       "prompt": "Check whether the generated DOCX separates decisions, action items, and background narrative cleanly.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "docx"]
     },
     {
@@ -410,7 +410,7 @@
       "locale": "en",
       "prompt": "Run an artifact quality gate on the final deliverable and tell me what must be fixed before sharing.",
       "expectedSkills": ["artifact-reviewer"],
-      "forbiddenSkills": ["powerpoint-artifact-guide", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
+      "forbiddenSkills": ["presentation-deck", "excel-artifact-guide", "word-artifact-guide", "pdf-artifact-guide"],
       "tags": ["review", "quality-gate"]
     }
   ]

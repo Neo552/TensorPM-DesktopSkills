@@ -31,7 +31,7 @@ second `describe_skill` call with
    whether the artifact is draft, internal, or client-facing.
 2. If the matching format guide is installed, call `describe_skill` for it and
    use its Quality Gate as part of the acceptance criteria:
-   - `powerpoint-artifact-guide` for `.pptx`
+   - `presentation-deck` for `.pptx`
    - `excel-artifact-guide` for `.xlsx`
    - `word-artifact-guide` for `.docx`
    - `pdf-artifact-guide` for `.pdf`
