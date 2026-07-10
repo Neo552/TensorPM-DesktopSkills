@@ -44,6 +44,8 @@ A skill version is release-ready when:
   external, executive, client-facing, or print-ready.
 - Reviews cite structured evidence such as cells, pages, slides, sections,
   layout constants, row counts, or rendered-preview observations.
+- Backend-authored PPTX/DOCX/PDF artifacts use their format-specific author
+  tool, return a durable edit id, and pass the integrated reviewer/repair gate.
 
 ## Design-Token And Anti-Slop Checks
 

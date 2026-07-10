@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-06T00:00:00.000Z",
+  "updatedAt": "2026-07-10T12:15:58.000Z",
   "skills": [
     {
       "id": "gaeb-import",
@@ -124,13 +124,13 @@
     },
     {
       "id": "word-artifact-guide",
-      "version": "0.1.3",
+      "version": "0.2.0",
       "label": "Word Artifact Guide",
-      "description": "Instruction-only guidance for polished TensorPM Word, DOCX, Berichte, Protokolle, editable reports, decision memos, semantic headings, tables, and document QA.",
+      "description": "Unlocks document_author and document_author_edit to create and revise professional editable Word/DOCX reports, meeting minutes, decision memos, requirements documents, and risk reports from the TensorPM project. A planner structures only sourced facts, a document design director defines the editorial system, then an author composes the DOCX and an independent reviewer drives automatic repair.",
       "descriptionI18n": {
-        "de": "Instruction-only Leitfaden für hochwertige TensorPM-Word-Dokumente mit editierbaren DOCX-Reports, Entscheidungsvorlagen, Meeting-Zusammenfassungen, semantischen Überschriften, Tabellen und Textprüfung."
+        "de": "Schaltet document_author und document_author_edit frei, um professionelle editierbare Word-/DOCX-Berichte, Protokolle, Entscheidungsvorlagen, Anforderungs- und Risikodokumente aus dem TensorPM-Projekt zu erstellen und zu überarbeiten. Planer, Document-Design-Director, Author und unabhängiger Reviewer arbeiten in einer automatischen Reparaturschleife."
       },
-      "minTensorPMVersion": "1.18.2",
+      "minTensorPMVersion": "1.20.0",
       "platforms": [
         "darwin",
         "win32",
@@ -138,34 +138,36 @@
       ],
       "permissions": {
         "tensorpm": {
-          "action_items": "none",
-          "decisions": "none",
-          "history": "none"
+          "action_items": "read",
+          "decisions": "read",
+          "history": "read"
         },
         "network": [],
         "project_files": {
           "read": [],
-          "write": []
+          "write": [
+            "exports/word-artifact-guide/**"
+          ]
         },
         "run": [],
-        "ai_provider": "none"
+        "ai_provider": "user_default"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/word-artifact-guide-v0.1.3/word-artifact-guide-0.1.3.tar.gz",
-        "sha256": "3dc6b98397ac8db831757a5949b760546541632cd002159cb29eb4956696781e",
-        "size": 3382
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/word-artifact-guide-v0.2.0/word-artifact-guide-0.2.0.tar.gz",
+        "sha256": "333e5e76f89a7c6267c824c419180e3a5b2c5d2f696fe25e9f92eacf9b2577cb",
+        "size": 2593
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/word-artifact-guide"
     },
     {
       "id": "pdf-artifact-guide",
-      "version": "0.1.3",
+      "version": "0.2.0",
       "label": "PDF Artifact Guide",
-      "description": "Instruction-only guidance for polished TensorPM PDF, Druckversionen, fixed-layout reports, render_html preview-to-PDF workflow, design contracts, pdf-lib boundaries, and visual QA.",
+      "description": "Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent reviewer drives automatic repair.",
       "descriptionI18n": {
-        "de": "Instruction-only Leitfaden für hochwertige TensorPM-PDF-Artefakte mit render_html-Preview-to-PDF-Workflow, Fixed-Layout-Reportstruktur, pdf-lib-Grenzen und visueller Prüfung."
+        "de": "Schaltet pdf_author und pdf_author_edit frei, um professionelle druckfertige PDF-Berichte, Statuspacks, Risikoberichte und Fixed-Layout-Kundendokumente aus dem TensorPM-Projekt zu erstellen und zu überarbeiten. Planer, Print-Design-Director, HTML-Author, Chromium-Renderer und unabhängiger Reviewer arbeiten in einer automatischen Reparaturschleife."
       },
-      "minTensorPMVersion": "1.18.2",
+      "minTensorPMVersion": "1.20.0",
       "platforms": [
         "darwin",
         "win32",
@@ -173,22 +175,24 @@
       ],
       "permissions": {
         "tensorpm": {
-          "action_items": "none",
-          "decisions": "none",
-          "history": "none"
+          "action_items": "read",
+          "decisions": "read",
+          "history": "read"
         },
         "network": [],
         "project_files": {
           "read": [],
-          "write": []
+          "write": [
+            "exports/pdf-artifact-guide/**"
+          ]
         },
         "run": [],
-        "ai_provider": "none"
+        "ai_provider": "user_default"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.1.3/pdf-artifact-guide-0.1.3.tar.gz",
-        "sha256": "7de82163ec32ba45b5d8e5a4c1b421b6db3a1222b9d4a7abe393992d81277512",
-        "size": 3526
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.2.0/pdf-artifact-guide-0.2.0.tar.gz",
+        "sha256": "fa3ddd31689c6486ec48372d71ef1edf5ab5fe4170a618617f58fcea28a9adc6",
+        "size": 2928
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/pdf-artifact-guide"
     },

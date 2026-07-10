@@ -63,7 +63,7 @@
         { "criterion": "Document structure separates context, decisions, action items, discussion, and open questions.", "weight": 25 },
         { "criterion": "Action items include owner, due date, status, and source confidence where available.", "weight": 25 },
         { "criterion": "Narrative is concise and uses the user's language.", "weight": 20 },
-        { "criterion": "Semantic headings and tables make the document editable.", "weight": 20 },
+        { "criterion": "document_author produces semantic editable structure and the integrated reviewer leaves no blocker/major finding.", "weight": 20 },
         { "criterion": "Missing inputs are marked rather than inferred.", "weight": 10 }
       ]
     },
@@ -75,7 +75,7 @@
       "rubric": [
         { "criterion": "Decision question and recommendation are clear in the first page.", "weight": 25 },
         { "criterion": "Options, tradeoffs, impact, and risks are structured for comparison.", "weight": 25 },
-        { "criterion": "Document uses semantic headings and simple editable tables.", "weight": 20 },
+        { "criterion": "document_author uses semantic headings and editable tables, returning a publicationId for later edits.", "weight": 20 },
         { "criterion": "Project facts and assumptions are explicit and source-consistent.", "weight": 20 },
         { "criterion": "Next action has owner and deadline when data exists.", "weight": 10 }
       ]
@@ -86,7 +86,7 @@
       "expectedSkills": ["pdf-artifact-guide"],
       "expectedArtifact": { "extensions": ["pdf"], "count": 1 },
       "rubric": [
-        { "criterion": "HTML-to-PNG preview loop is used before final PDF export when available.", "weight": 20 },
+        { "criterion": "pdf_author performs integrated structural/visual review and bounded repair before final export.", "weight": 20 },
         { "criterion": "Final PDF has readable typography, consistent margins, and no overlaps/clipping.", "weight": 30 },
         { "criterion": "Page breaks do not split headings or key tables awkwardly.", "weight": 20 },
         { "criterion": "Status colors are paired with text labels and print legibly.", "weight": 15 },
@@ -101,7 +101,7 @@
       "rubric": [
         { "criterion": "Report includes all requested risk fields and separates assumptions from facts.", "weight": 25 },
         { "criterion": "Visual hierarchy makes high-priority risks easy to scan.", "weight": 20 },
-        { "criterion": "PDF layout is previewed and free of overlap, clipping, unreadable tables, and token drift.", "weight": 30 },
+        { "criterion": "pdf_author review/repair leaves the PDF free of overlap, clipping, unreadable tables, and token drift.", "weight": 30 },
         { "criterion": "Headers, footers, dates, and units are consistent.", "weight": 15 },
         { "criterion": "Large raw tables are summarized or moved out of the PDF.", "weight": 10 }
       ]

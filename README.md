@@ -67,6 +67,12 @@ Each skill lives under `skills/<id>/`. A skill is either:
   `describe_skill` to read the SKILL.md body, then writes an ad-hoc
   `execute_code` call that follows the instructions.
 
+An instruction-only skill may also unlock a trusted backend authoring tool in
+newer TensorPM versions. `presentation-deck`, `word-artifact-guide`, and
+`pdf-artifact-guide` use this pattern: installation/trust is the capability
+gate, while planning, authoring, rendering, review, and repair execute in the
+desktop backend rather than as a downloadable script.
+
 Customers can publish their own skills and point the app at this or any other
 catalog URL via the `TPM_REMOTE_CATALOG_URL` env var.
 
