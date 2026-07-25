@@ -154,7 +154,7 @@
       },
       "payload": {
         "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/word-artifact-guide-v0.2.0/word-artifact-guide-0.2.0.tar.gz",
-        "sha256": "333e5e76f89a7c6267c824c419180e3a5b2c5d2f696fe25e9f92eacf9b2577cb",
+        "sha256": "434a1afbe96cf2aa8480475b0535e960ce0630eab54e453db128509057c43f66",
         "size": 2593
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/word-artifact-guide"
@@ -191,7 +191,7 @@
       },
       "payload": {
         "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.2.0/pdf-artifact-guide-0.2.0.tar.gz",
-        "sha256": "fa3ddd31689c6486ec48372d71ef1edf5ab5fe4170a618617f58fcea28a9adc6",
+        "sha256": "2b53eb6084c58eb90367dfff74f58791368946b8a83796cd0150df2c422c3050",
         "size": 2928
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/pdf-artifact-guide"
