@@ -99,7 +99,7 @@ assets that were never uploaded — every install of those skills failed with a
 
 ```bash
 node scripts/verify-catalog.mjs --remote   # downloads every published payload, checks sha256/size
-node scripts/verify-reproducible.mjs       # every payload rebuilds byte-for-byte from source
+node scripts/verify-reproducible.mjs       # published payload content matches a rebuild from source
 node scripts/verify-catalog.mjs --tarballs /tmp   # offline: check against locally built tarballs
 ```
 
@@ -112,8 +112,15 @@ that the Mach-O deployment target is not newer than macOS 13.0 by default.
 
 Payloads are packed by `scripts/pack-skill.mjs`, which writes the ustar archive
 directly instead of shelling out to `tar`. `catalog.json` pins a sha256, so if a
-release asset is ever lost the tarball has to be rebuildable byte-for-byte;
-plain `tar -czf` bakes in filesystem mtimes and cannot do that.
+release asset is ever lost the payload has to be rebuildable from source; plain
+`tar -czf` bakes in filesystem mtimes and cannot do that.
+
+Note that the `.tar.gz` digest is reproducible only on the same machine: zlib's
+deflate output differs between versions, so macOS and Linux produce different
+archive bytes from identical content. The *tar content* is byte-stable
+everywhere, which is what `verify-reproducible.mjs` asserts. Recovering a lost
+asset therefore means repacking and bumping the catalog sha — one line, and
+`publish-skill.mjs` does it for you.
 
 Clients fetch `catalog.json` on demand, with an ETag-cached layer in the
 app's userData dir, so updates propagate within minutes of the commit

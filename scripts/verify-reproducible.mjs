@@ -1,27 +1,33 @@
 #!/usr/bin/env node
 /**
- * Check that catalog payloads can be rebuilt from this repo byte-for-byte.
+ * Check that every published payload's *content* can be rebuilt from this repo.
  *
  * This guards the recovery path. `catalog.json` pins a sha256, so if a release
- * asset is ever lost or a release is retagged, the only clean fix is to rebuild
- * the identical tarball. That is impossible for anything packed with a plain
- * `tar -czf`, which bakes in filesystem mtimes.
+ * asset is lost or a tag is moved, the tarball has to be rebuildable from
+ * source. It also catches the quieter failure: a published payload that no
+ * longer matches the `skills/<id>/` tree it claims to come from.
  *
- * Entries listed in LEGACY_UNREPRODUCIBLE predate scripts/pack-skill.mjs and are
- * reported but not fatal. They leave the list on their own: the next version
- * published through scripts/publish-skill.mjs matches, and the entry can be
- * deleted from the list below.
+ * The comparison is on the *uncompressed tar*, not the `.tar.gz` digest.
+ * gzip output is not portable — zlib's deflate differs between versions, so the
+ * same source packed on macOS and on Linux produces different archive bytes
+ * (CI caught exactly this). The tar content is byte-stable everywhere, and a
+ * rebuild only costs a one-line catalog sha update, which publish-skill.mjs
+ * does automatically.
+ *
+ * Entries in LEGACY_UNREPRODUCIBLE were packed with plain `tar -czf .` before
+ * scripts/pack-skill.mjs existed; their archives carry `./` prefixes and
+ * filesystem modes, so they never match. They leave the list on their own: the
+ * next version published through publish-skill.mjs matches, and the entry can
+ * be deleted below.
  *
  *   node scripts/verify-reproducible.mjs
  */
-import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdtempSync } from 'node:fs';
-import { tmpdir } from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
+import { gunzipSync } from 'node:zlib';
 
-import { packSkill } from './pack-skill.mjs';
+import { buildSkillTar } from './pack-skill.mjs';
 
 /** id@version pairs packed before deterministic packing existed. Do not add to this list. */
 const LEGACY_UNREPRODUCIBLE = new Set([
@@ -34,7 +40,6 @@ const LEGACY_UNREPRODUCIBLE = new Set([
 
 const root = process.cwd();
 const catalog = JSON.parse(readFileSync(path.join(root, 'catalog.json'), 'utf8'));
-const outDir = mkdtempSync(path.join(tmpdir(), 'tpm-repro-'));
 
 const failures = [];
 const legacy = [];
@@ -43,34 +48,48 @@ let checked = 0;
 
 for (const entry of catalog.skills) {
   const key = `${entry.id}@${entry.version}`;
-  const skillDir = path.join(root, 'skills', entry.id);
+  const report = (msg) => (LEGACY_UNREPRODUCIBLE.has(key) ? legacy : failures).push(msg);
 
-  if (!existsSync(skillDir)) {
+  if (!existsSync(path.join(root, 'skills', entry.id))) {
     skipped.push(`${key} (no source in this repo)`);
     continue;
   }
 
   let built;
   try {
-    built = packSkill(root, entry.id, outDir);
+    built = buildSkillTar(root, entry.id);
   } catch (err) {
-    (LEGACY_UNREPRODUCIBLE.has(key) ? legacy : failures).push(`${key}: pack failed — ${err.message}`);
+    report(`${key}: pack failed — ${err.message}`);
     continue;
   }
 
   if (built.version !== entry.version) {
-    // Source has moved on past the published version. Not this check's problem —
+    // Source has moved past the published version. Not this check's problem —
     // verify-catalog.mjs --remote covers whether the published entry is intact.
     skipped.push(`${key} (source is at ${built.version})`);
     continue;
   }
 
+  let publishedTar;
+  try {
+    const res = await fetch(entry.payload.url, { redirect: 'follow' });
+    if (!res.ok) {
+      // verify-catalog.mjs --remote reports this properly; don't duplicate the noise.
+      skipped.push(`${key} (payload unreachable: HTTP ${res.status})`);
+      continue;
+    }
+    publishedTar = gunzipSync(Buffer.from(await res.arrayBuffer()));
+  } catch (err) {
+    skipped.push(`${key} (download failed: ${err.message})`);
+    continue;
+  }
+
   checked++;
-  if (built.sha256 !== entry.payload.sha256) {
-    const msg =
-      `${key}: rebuild sha256 ${built.sha256} ≠ catalog ${entry.payload.sha256}. ` +
-      `Repack with scripts/publish-skill.mjs so the payload is reproducible.`;
-    (LEGACY_UNREPRODUCIBLE.has(key) ? legacy : failures).push(msg);
+  if (!publishedTar.equals(built.tar)) {
+    report(
+      `${key}: published payload content does not match a rebuild from skills/${entry.id}/. ` +
+        `Repack and republish with scripts/publish-skill.mjs.`,
+    );
   } else if (LEGACY_UNREPRODUCIBLE.has(key)) {
     legacy.push(`${key}: now reproducible — remove it from LEGACY_UNREPRODUCIBLE.`);
   }

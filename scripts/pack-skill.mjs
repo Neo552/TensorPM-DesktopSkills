@@ -24,7 +24,18 @@ const BLOCK = 512;
 /** Fixed timestamp for every entry. Any constant works; this one is arbitrary. */
 const FIXED_MTIME = 1577836800; // 2020-01-01T00:00:00Z
 
-export function packSkill(root, skillId, outDir) {
+/**
+ * Build the uncompressed tar payload. These bytes are stable across machines
+ * and OSes — it is pure buffer arithmetic here, with no filesystem metadata
+ * and no platform library involved.
+ *
+ * The gzip wrapper around it is NOT portable: zlib's deflate output differs
+ * between zlib versions, so the same source packed on macOS and on Linux
+ * yields different `.tar.gz` bytes. Reproducibility is therefore asserted on
+ * the tar content (see scripts/verify-reproducible.mjs), not on the archive
+ * digest that catalog.json pins.
+ */
+export function buildSkillTar(root, skillId) {
   const skillDir = path.join(root, 'skills', skillId);
   const version = readSkillVersion(path.join(skillDir, 'SKILL.md'), skillId);
 
@@ -42,8 +53,12 @@ export function packSkill(root, skillId, outDir) {
   const tar = Buffer.concat(chunks);
   const padded = Buffer.concat([tar, Buffer.alloc(roundUp(tar.length, BLOCK * 20) - tar.length)]);
 
-  // level 9 + mtime 0 in the gzip header (Node's default) keeps output stable.
-  const gz = gzipSync(padded, { level: 9 });
+  return { version, tar: padded, tarSha256: createHash('sha256').update(padded).digest('hex') };
+}
+
+export function packSkill(root, skillId, outDir) {
+  const { version, tar, tarSha256 } = buildSkillTar(root, skillId);
+  const gz = gzipSync(tar, { level: 9 });
 
   mkdirSync(outDir, { recursive: true });
   const outPath = path.join(outDir, `${skillId}-${version}.tar.gz`);
@@ -55,6 +70,7 @@ export function packSkill(root, skillId, outDir) {
     path: outPath,
     size: gz.length,
     sha256: createHash('sha256').update(gz).digest('hex'),
+    tarSha256,
   };
 }
 

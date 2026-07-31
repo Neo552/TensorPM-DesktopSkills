@@ -30,8 +30,9 @@ jobs:
       - name: Verify catalog against published release assets
         run: node scripts/verify-catalog.mjs --remote
 
-      - name: Verify payloads rebuild reproducibly from source
-        # Guards the recovery path: if a release asset is ever lost, the tarball
-        # has to be rebuildable byte-for-byte instead of forcing a catalog
-        # rewrite. Skills whose source is not in this repo are skipped.
+      - name: Verify published payloads match a rebuild from source
+        # Guards the recovery path, and catches a published payload that has
+        # drifted from the skills/<id>/ tree it claims to come from. Compares
+        # tar content, not the .tar.gz digest — gzip output is not portable
+        # across zlib versions. Skills without source in this repo are skipped.
         run: node scripts/verify-reproducible.mjs
