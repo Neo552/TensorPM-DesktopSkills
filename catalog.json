@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T12:15:58.000Z",
+  "updatedAt": "2026-07-31T06:43:53.000Z",
   "skills": [
     {
       "id": "gaeb-import",
@@ -154,8 +154,8 @@
       },
       "payload": {
         "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/word-artifact-guide-v0.2.0/word-artifact-guide-0.2.0.tar.gz",
-        "sha256": "434a1afbe96cf2aa8480475b0535e960ce0630eab54e453db128509057c43f66",
-        "size": 2593
+        "sha256": "e3e842babc5e471fcbd1a2bc014bd42b21b7ed50dec077d9192fb2109a934073",
+        "size": 2086
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/word-artifact-guide"
     },
@@ -191,8 +191,8 @@
       },
       "payload": {
         "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.2.0/pdf-artifact-guide-0.2.0.tar.gz",
-        "sha256": "2b53eb6084c58eb90367dfff74f58791368946b8a83796cd0150df2c422c3050",
-        "size": 2928
+        "sha256": "3e77e9cf81167b8ba9b0dc3685fb04fe374bd9e1a1c9fef3903bcf0f72bd9e08",
+        "size": 2428
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/pdf-artifact-guide"
     },

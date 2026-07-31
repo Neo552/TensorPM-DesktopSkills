@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { lstatSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { lstatSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
@@ -9,19 +9,58 @@ import process from 'node:process';
 const args = parseArgs(process.argv.slice(2));
 const root = process.cwd();
 const catalogPath = path.join(root, 'catalog.json');
-const tarballDir = path.resolve(args.tarballs ?? tmpdir());
 const maxMacosMin = args.maxMacosMin ?? '13.0';
 
 const catalog = JSON.parse(readFileSync(catalogPath, 'utf8'));
 assert(catalog.schemaVersion === 1, 'catalog.schemaVersion must be 1');
 assert(Array.isArray(catalog.skills), 'catalog.skills must be an array');
 
+// --remote downloads every payload.url instead of reading a local build
+// directory. This is the check that matters in CI: a catalog entry whose
+// release asset was never uploaded (or was later deleted) passes every local
+// check and still breaks install for every user. Verifying the published bytes
+// is the only way to catch that.
+const tarballDir = args.remote
+  ? await downloadPayloads(catalog.skills)
+  : path.resolve(args.tarballs ?? tmpdir());
+
 const seenIds = new Set();
 for (const entry of catalog.skills) {
   verifyEntry(entry);
 }
 
-console.log(`Verified ${catalog.skills.length} catalog skill(s).`);
+console.log(`Verified ${catalog.skills.length} catalog skill(s)${args.remote ? ' against published release assets' : ''}.`);
+
+async function downloadPayloads(skills) {
+  const dir = mkdtempSync(path.join(tmpdir(), 'tpm-catalog-remote-'));
+  const failures = [];
+  for (const entry of skills) {
+    const url = entry?.payload?.url;
+    if (typeof url !== 'string') continue; // assertPayload reports the real problem
+    let res;
+    try {
+      res = await fetch(url, { redirect: 'follow' });
+    } catch (err) {
+      failures.push(`${entry.id}@${entry.version}: ${url} — network error: ${err.message}`);
+      continue;
+    }
+    if (!res.ok) {
+      failures.push(
+        `${entry.id}@${entry.version}: ${url} — HTTP ${res.status}. ` +
+          `Is the release "${entry.id}-v${entry.version}" published with its asset uploaded?`,
+      );
+      continue;
+    }
+    writeFileSync(
+      path.join(dir, path.basename(new URL(url).pathname)),
+      Buffer.from(await res.arrayBuffer()),
+    );
+  }
+  if (failures.length > 0) {
+    throw new Error(`Unreachable catalog payload(s):\n  - ${failures.join('\n  - ')}`);
+  }
+  return dir;
+}
 
 function verifyEntry(entry) {
   assertString(entry.id, 'skill id');
@@ -209,6 +248,8 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === '--tarballs') {
       out.tarballs = argv[++i];
+    } else if (arg === '--remote') {
+      out.remote = true;
     } else if (arg === '--max-macos-min') {
       out.maxMacosMin = argv[++i];
     } else {

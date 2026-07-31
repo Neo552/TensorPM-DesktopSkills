@@ -79,30 +79,41 @@ catalog URL via the `TPM_REMOTE_CATALOG_URL` env var.
 ## Publishing a new skill version
 
 1. Place skill source under `skills/<id>/` with a valid `SKILL.md`.
-2. Bump `version:` in `skills/<id>/SKILL.md`.
-3. Tar the skill folder:
+2. Bump `version:` in `skills/<id>/SKILL.md` and in the `catalog.json` entry.
+3. Publish:
    ```bash
-   cd skills/<id>
-   tar -czf /tmp/<id>-<version>.tar.gz .
+   node scripts/publish-skill.mjs <id> --notes "Release notes here"
    ```
-4. Create a GitHub Release tagged `<id>-v<version>` and upload the tarball:
-   ```bash
-   gh release create <id>-v<version> /tmp/<id>-<version>.tar.gz \
-     --title "<id> v<version>" \
-     --notes "Release notes here"
-   ```
-5. Compute sha256 + size, append the entry to `catalog.json`, and commit:
-   ```bash
-   shasum -a 256 /tmp/<id>-<version>.tar.gz
-   stat -f%z /tmp/<id>-<version>.tar.gz
-   ```
-6. Verify the catalog entry against the local release tarball before pushing:
-   ```bash
-   node scripts/verify-catalog.mjs --tarballs /tmp
-   ```
-   For macOS native skills, this also checks that declared `skill:assets/bin/...`
-   targets are executable, that `whisper-cli -h` starts, and that the Mach-O
-   deployment target is not newer than macOS 13.0 by default.
+   This packs a deterministic tarball, creates the `<id>-v<version>` GitHub
+   Release, uploads the asset, confirms the published URL serves the expected
+   bytes, and only then rewrites the `payload` block in `catalog.json`.
+   Add `--dry-run` to preview.
+4. Review the `catalog.json` diff, then commit and push.
+
+**Do not publish by hand.** The asset must exist before `catalog.json` points at
+it. Publishing the catalog first produced a live catalog referencing release
+assets that were never uploaded — every install of those skills failed with a
+404, and nothing in the repo flagged it.
+
+### Verification
+
+```bash
+node scripts/verify-catalog.mjs --remote   # downloads every published payload, checks sha256/size
+node scripts/verify-reproducible.mjs       # every payload rebuilds byte-for-byte from source
+node scripts/verify-catalog.mjs --tarballs /tmp   # offline: check against locally built tarballs
+```
+
+Both `--remote` and the reproducibility check run in CI on every push and PR to
+`main`, plus daily — an asset can disappear long after the commit that added it.
+
+For macOS native skills, verification also checks that declared
+`skill:assets/bin/...` targets are executable, that `whisper-cli -h` starts, and
+that the Mach-O deployment target is not newer than macOS 13.0 by default.
+
+Payloads are packed by `scripts/pack-skill.mjs`, which writes the ustar archive
+directly instead of shelling out to `tar`. `catalog.json` pins a sha256, so if a
+release asset is ever lost the tarball has to be rebuildable byte-for-byte;
+plain `tar -czf` bakes in filesystem mtimes and cannot do that.
 
 Clients fetch `catalog.json` on demand, with an ETag-cached layer in the
 app's userData dir, so updates propagate within minutes of the commit
