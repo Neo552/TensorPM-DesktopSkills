@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T06:43:53.000Z",
+  "updatedAt": "2026-08-21T13:06:00.000Z",
   "skills": [
     {
       "id": "gaeb-import",
@@ -161,11 +161,11 @@
     },
     {
       "id": "pdf-artifact-guide",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "label": "PDF Artifact Guide",
-      "description": "Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent reviewer drives automatic repair.",
+      "description": "Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent structural, pagination and visual reviewer drives automatic repair. Also guides targeted PDF stamping, merging, splitting, and edits.",
       "descriptionI18n": {
-        "de": "Schaltet pdf_author und pdf_author_edit frei, um professionelle druckfertige PDF-Berichte, Statuspacks, Risikoberichte und Fixed-Layout-Kundendokumente aus dem TensorPM-Projekt zu erstellen und zu überarbeiten. Planer, Print-Design-Director, HTML-Author, Chromium-Renderer und unabhängiger Reviewer arbeiten in einer automatischen Reparaturschleife."
+        "de": "Schaltet pdf_author und pdf_author_edit frei, um professionelle druckfertige PDF-Berichte, Statuspacks, Risikoberichte und Fixed-Layout-Kundendokumente aus dem TensorPM-Projekt zu erstellen und zu überarbeiten. Planer, Print-Design-Director, HTML-Author, Chromium-Renderer und ein unabhängiger Reviewer für Struktur, Seitenumbrüche und Optik arbeiten in einer automatischen Reparaturschleife."
       },
       "minTensorPMVersion": "1.20.0",
       "platforms": [
@@ -190,9 +190,9 @@
         "ai_provider": "user_default"
       },
       "payload": {
-        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.2.0/pdf-artifact-guide-0.2.0.tar.gz",
-        "sha256": "3e77e9cf81167b8ba9b0dc3685fb04fe374bd9e1a1c9fef3903bcf0f72bd9e08",
-        "size": 2428
+        "url": "https://github.com/Neo552/TensorPM-DesktopSkills/releases/download/pdf-artifact-guide-v0.3.0/pdf-artifact-guide-0.3.0.tar.gz",
+        "sha256": "83ac93a478252f9d3db069b7cc922f551125b8b142230be6d6231ff22649339c",
+        "size": 3606
       },
       "homepage": "https://github.com/Neo552/TensorPM-DesktopSkills/tree/main/skills/pdf-artifact-guide"
     },

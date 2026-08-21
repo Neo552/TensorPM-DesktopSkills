@@ -1,6 +1,6 @@
 ---
 name: pdf-artifact-guide
-description: Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent structural/visual reviewer drives automatic repair. Also guides targeted PDF stamping, merging, splitting, and edits.
+description: Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent structural, pagination and visual reviewer drives automatic repair. Also guides targeted PDF stamping, merging, splitting, and edits.
 version: 0.3.0
 permissions:
   tensorpm:
