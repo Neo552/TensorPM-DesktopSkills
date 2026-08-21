@@ -1,7 +1,7 @@
 ---
 name: pdf-artifact-guide
 description: Unlocks pdf_author and pdf_author_edit to create and revise professional print-ready PDF reports, status packs, risk reports, and fixed-layout client deliverables from the TensorPM project. A planner structures only sourced facts, a print design director defines the editorial system, an HTML author composes the report, Chromium renders it, and an independent structural/visual reviewer drives automatic repair. Also guides targeted PDF stamping, merging, splitting, and edits.
-version: 0.2.0
+version: 0.3.0
 permissions:
   tensorpm:
     action_items: read
@@ -25,8 +25,14 @@ tool.
 The backend owns the full quality loop: a planner derives the report narrative
 from the project graph, a print design director defines page/type/table systems,
 an HTML author composes the report, Chromium renders the PDF, and a fresh
-reviewer checks PDF validity, print-source structure, and a visual preview.
-Render or review failures are fed back to the author for bounded repair.
+reviewer checks PDF validity, print-source structure, page breaks in the
+rendered pages, and a visual preview. Render or review failures are fed back to
+the author for bounded repair.
+
+Design stays with the design director and the author: palette, typography,
+grid, page format and margins are all theirs. The renderer only prints the
+running footer with the page number, because Chromium cannot number pages from
+CSS.
 
 ## Create — `pdf_author`
 
@@ -53,7 +59,10 @@ This edit path only works for reports created with `pdf_author`.
 Use **`@tensorpm/pdf`** (`pdf-lib`) through `execute_code` for stamping, adding
 text at known coordinates, merging/splitting pages, embedding images, or other
 targeted edits to staged PDFs. Use `render_html` directly only when the user
-explicitly wants to control/provide the HTML or needs a one-off preview.
+explicitly wants to control/provide the HTML or needs a one-off preview. In
+that workflow preview with `format: "pdf-preview"` — it paginates like the
+final PDF and reports page-break defects — never with `format: "png"`, which
+renders one continuous image in which page breaks do not exist.
 
 Do not use `pdf-lib` as a flowing report layout engine. It does not provide
 automatic wrapping, pagination, or page-break management.
@@ -62,7 +71,9 @@ automatic wrapping, pagination, or page-break management.
 
 - Use only project-graph facts; label assumptions and missing inputs visibly.
 - Use A4 for European/client reports unless the user requests another format.
-- Keep typography, margins, headers/footers, dates, and source notes consistent.
+- Declare the page you designed in `@page` (size and margins); keep at least
+  14mm bottom margin for the printed running footer.
+- Keep typography, margins, dates, and source notes consistent.
 - Pair status colour with text labels and keep the design print-safe.
 - Use `pdf_author_edit` for iterative report changes instead of rebuilding.
 - For a review-only request, use `artifact-reviewer`; do not silently regenerate.
